@@ -9,7 +9,6 @@ app.use(express.json());
 
 app.use('/users', usersRouter);
 app.use('/cards', cardsRouter);
-app.use('/card', cardsRouter);
 
 app.use((req, res) => {
   res.status(404).send({ message: 'Recurso requisitado não encontrado' });
