@@ -1,67 +1,74 @@
-# Tripleten web_project_around_express
+# Projeto 16 — Around The U.S. Express
 
-# Projeto 15 — Around Express
+## Descrição
 
-## Descrição do projeto
+Este projeto é o backend da aplicação **Around The U.S.**, desenvolvido com **Node.js**, **Express** e **MongoDB**.
 
-Este projeto é o início do back-end da aplicação Around the U.S.
+Nesta etapa, a API foi conectada a um banco de dados MongoDB usando **Mongoose**, substituindo os dados locais por coleções reais no banco. O projeto permite criar, consultar, atualizar e remover usuários e cartões, além de curtir e descurtir cartões.
 
-Nesta etapa, foi criado um servidor com Node.js e Express que responde a algumas rotas e retorna dados em formato JSON. Os dados são lidos de arquivos locais `users.json` e `cards.json`.
+## Funcionalidades
 
-## Funcionalidade
-
-O servidor responde às seguintes rotas:
-
+### Usuários
 - `GET /users` — retorna todos os usuários
-- `GET /card` — retorna todos os cards
-- `GET /cards` — retorna todos os cards
-- `GET /users/:userId` — retorna um usuário pelo ID
+- `GET /users/:userId` — retorna um usuário por `_id`
+- `POST /users` — cria um novo usuário
+- `PATCH /users/me` — atualiza o perfil
+- `PATCH /users/me/avatar` — atualiza o avatar
 
-O projeto também trata erros:
+### Cartões
+- `GET /cards` — retorna todos os cartões
+- `POST /cards` — cria um novo cartão
+- `DELETE /cards/:cardId` — remove um cartão por `_id`
+- `PUT /cards/:cardId/likes` — curte um cartão
+- `DELETE /cards/:cardId/likes` — descurte um cartão
 
-- `404` — quando o usuário não é encontrado ou a rota não existe
-- `500` — quando ocorre um erro no servidor
-
-## Tecnologias e técnicas utilizadas
+## Tecnologias utilizadas
 
 - Node.js
 - Express
+- MongoDB
+- Mongoose
+- JavaScript
 - ESLint
 - Nodemon
-- EditorConfig
-- módulo `fs` para leitura de arquivos
-- módulo `path` para montar os caminhos dos arquivos
-- estrutura modular com rotas separadas
+- Postman
+- MongoDB Compass
 
-## Executar o projeto
-
-Instalar as dependências:
+## Estrutura do projeto
 
 ```bash
+web_project_around_express/
+├── app.js
+├── controllers/
+├── models/
+├── routes/
+├── utils/
+├── package.json
+└── README.md
+Executar o projeto
+Instalar dependências
 npm install
-
-Executar em modo de desenvolvimento:
-
-npm run dev
-
-Executar em modo normal:
-
+Iniciar o servidor
 npm run start
+Iniciar em modo de desenvolvimento
+npm run dev
 
 O servidor será iniciado em:
 
 http://localhost:3000
-Estrutura do projeto
-web_project_around_express/
-├── app.js
-├── data/
-│   ├── users.json
-│   └── cards.json
-├── routes/
-│   ├── users.js
-│   └── cards.js
-├── .editorconfig
-├── .eslintrc
-├── .gitignore
-├── package.json
-└── README.md
+
+O projeto usa a conexão local com MongoDB:
+
+mongodb://localhost:27017/aroundb
+Testes
+
+As rotas foram testadas com Postman, incluindo:
+
+requisições de sucesso
+validação de dados inválidos
+erros 400, 404 e 500
+atualização de perfil e avatar
+likes e dislikes em cartões
+Autor
+
+Pedro Faustino

@@ -20,7 +20,8 @@
     "lint": "npx eslint ."
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "mongoose": "^9.4.1"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
